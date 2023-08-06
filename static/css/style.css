@@ -42,3 +42,18 @@ header {
   height: 800px; /* Set an appropriate height for the map container */
   margin: 0 auto; /* Center the map horizontally */
 }
+
+
+.legend {
+  color: #555;
+  padding: 6px 8px;
+  background: white;
+}
+
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.9;
+}
