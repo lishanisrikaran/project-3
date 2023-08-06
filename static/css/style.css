@@ -1,39 +1,44 @@
 /* Applies a font, and sets the background color. */
 body {
-    font-family: "Open Sans", sans-serif;
-    background-color: #f7f7f7;
-  }
-  
-  /* Applies styles which are common for both the header and sections. */
-  header, .section {
-    text-align: center;
-    padding: 5px;
-  }
-  
-  /* Applies styles just for the header. */
-  header {
-    background-color: #0051ff;
-    color: #fff;
-    margin-bottom: 20px;
-    margin-top: 20px; 
-  }
-  
-  /* Main content container */
-  .main-container {
-    margin-bottom: 20px;
-  }
-  
-  /* Applies styles within the section class */
+  font-family: "Open Sans", sans-serif;
+  background-color: #f7f7f7;
+}
 
-  .section h2 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #0051ff;
-  }
-  
-  .section img {
-    max-width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-  }
-  
+/* Applies styles which are common for both the header and sections. */
+header, .section {
+  text-align: center;
+  padding: 5px;
+}
+
+/* Applies styles just for the header. */
+header {
+  background-color: #0051ff;
+  color: #fff;
+  margin-bottom: 20px;
+  margin-top: 20px; 
+}
+
+/* Main content container */
+.main-container {
+  margin-bottom: 20px;
+}
+
+/* Applies styles within the section class */
+.section h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0051ff;
+}
+
+.section img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+/* Map container */
+#schoolMap {
+  width: 80%; /* Assuming you want the map to occupy the full width of its container */
+  height: 800px; /* Set an appropriate height for the map container */
+  margin: 0 auto; /* Center the map horizontally */
+}
