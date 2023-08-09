@@ -1,4 +1,4 @@
--- Create a new table
+-- Create a new table to hold all CSV data once imported.
 CREATE TABLE NYC_Demographics (
   JURISDICTION_NAME INT NOT NULL,
   COUNT_PARTICIPANTS INT NOT NULL,
@@ -47,5 +47,58 @@ CREATE TABLE NYC_Demographics (
   COUNT_PUBLIC_ASSISTANCE_TOTAL INT NOT NULL, 
   PERCENT_PUBLIC_ASSISTANCE_TOTAL FLOAT NOT NULL
 );
+
+-- Data Cleaning:
+
+-- Removes the redundant columns.
+ALTER TABLE nyc_demographics
+DROP COLUMN percent_female,
+DROP COLUMN percent_male,
+DROP COLUMN percent_gender_unknown,
+DROP COLUMN percent_gender_total,
+DROP COLUMN percent_pacific_islander,
+DROP COLUMN percent_hispanic_latino,
+DROP COLUMN percent_american_indian,
+DROP COLUMN percent_asian_non_hispanic,
+DROP COLUMN percent_white_non_hispanic,
+DROP COLUMN percent_black_non_hispanic,
+DROP COLUMN percent_other_ethnicity,
+DROP COLUMN percent_ethnicity_unknown,
+DROP COLUMN percent_ethnicity_total,
+DROP COLUMN percent_permanent_resident_alien,
+DROP COLUMN percent_us_citizen,
+DROP COLUMN percent_other_citizen_status,
+DROP COLUMN percent_citizen_status_unknown,
+DROP COLUMN percent_citizen_status_total,
+DROP COLUMN percent_receives_public_assistance,
+DROP COLUMN percent_nreceives_public_assistance,
+DROP COLUMN percent_public_assistance_unknown,
+DROP COLUMN percent_public_assistance_total;
+
+-- Remove rows with 0 in all columns (except jurisdiction_name)
+DELETE FROM NYC_Demographics
+WHERE count_participants = 0
+  AND count_female = 0
+  AND count_male = 0
+  AND count_gender_unknown = 0
+  AND count_gender_total = 0
+  AND count_pacific_islander = 0
+  AND count_hispanic_latino = 0
+  AND count_american_indian = 0
+  AND count_asian_non_hispanic = 0
+  AND count_white_non_hispanic = 0
+  AND count_black_non_hispanic = 0
+  AND count_other_ethnicity = 0
+  AND count_ethnicity_unknown = 0
+  AND count_ethnicity_total = 0
+  AND count_permanent_resident_alien = 0
+  AND count_us_citizen = 0
+  AND count_other_citizen_status = 0
+  AND count_citizen_status_unknown = 0
+  AND count_citizen_status_total = 0
+  AND count_receives_public_assistance = 0
+  AND count_nreceives_public_assistance = 0
+  AND count_public_assistance_unknown = 0
+  AND count_public_assistance_total = 0;
 
 SELECT * FROM nyc_demographics;
