@@ -6,63 +6,102 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>A Distribution of Wealth</title>
+  <title>A Distribution of Wealth - New York</title>
 
-   <!-- Leaflet JavaScript code -->
-   <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
+  <!-- Leaflet JavaScript code -->
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
 
-   <!-- D3 library -->
-   <script src="https://d3js.org/d3.v5.min.js"></script>
+  <!-- D3 library -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
 
-   <!-- Leaflet CSS -->
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+  <!-- Plotly library -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin="" />
 
   <!-- Our CSS -->
   <link rel="stylesheet" href="static/css/style.css">
 
   <!-- Leaflet Reset Plugin -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@drustack/leaflet.resetview/dist/L.Control.ResetView.min.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@drustack/leaflet.resetview/dist/L.Control.ResetView.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@drustack/leaflet.resetview/dist/L.Control.ResetView.min.js"></script>
+
+  <!-- Our JavaScript -->
+  <script src="static/js/nyc-demographics-scatter.js"></script>
 
 </head>
 
 <body>
   <!-- Website Title -->
   <header>
-    <h1>A Distribution of Wealth</h1>
+    <h1>A Distribution of Wealth - New York</h1>
   </header>
 
-  <!-- Main container --> 
+  <!-- Main container -->
   <div class="main-container">
 
     <!-- First Divison -->
     <div class="section">
       <h2>"Education is the most powerful weapon which you can use to change the world." - Nelson Mandela (2003)</h2>
-      <img src="https://1.bp.blogspot.com/-YuqZ0Du7adM/VPUTly9cXLI/AAAAAAAAXmc/CmePAIIQai4/s1600/poor_low_income_student.jpg" alt="Image for Section 1">
+      <img
+        src="https://1.bp.blogspot.com/-YuqZ0Du7adM/VPUTly9cXLI/AAAAAAAAXmc/CmePAIIQai4/s1600/poor_low_income_student.jpg"
+        alt="Image for Section 1">
       <p>Dante Lee International. (2019)</p>
+      <p>The below map shows how the income-poverty ratio's collated by EDGE (Education Demographic and Geographic Estimates) vary accross 
+      neighborhoods around school buildings.<br> The economic condition of the neighborhood around a school may impact schools, just as the 
+      condition of neighborhood schools may impact local neighborhoods</p>
       <div id="schoolMap"></div>
+
+      <!-- JavaScript file -->
+      <!-- Placement due to visual load time optimisation -->
+      <script type="text/javascript" src="static/js/school-neighborhood-poverty.js"></script>
+    
     </div>
 
     <!-- Second Division -->
     <div class="section">
-      <h2>Visual 2</h2>
-      <p>Fact that visual 2 shows e.g: West Virginia. With a Zillow Home Value Index of $146,578, West Virginia is the most affordable state to buy a house in the US.</p>
-      <img src="" alt="Image for Section 2">
-      <div id="secondVisual"></div>
-       <!-- JavaScript file -->
-      <script type="text/javascript" src="static/js/school-neighborhood-poverty.js"></script>
-
+      <h2>How can we make change in the world when not everyone feels welcome to participate in the conversation?</h2>
+      <img 
+        src="https://www.voicesofyouth.org/sites/voy/files/styles/big_blog_teaser/public/images/2020-07/advocacyculture_and_empowerment.png" 
+        alt="Image for Section 2">
+        <p>Voices of Youth. (2020)</p>
+        <p>The below scatter chart is dynamic, select the desired x axis to see how a sample of a demographic from each zip code in NYC <br> 
+          relates to the number of individuals receiving public assistance in the same area.</p>
+      <div id="nyc-demographics-scatter"></div>
+      <div>
+        <label for="xAxisDropdown">Select X-Axis:</label>
+        <select id="xAxisDropdown">
+          <option value="count_female">Count Female</option>
+          <option value="count_male">Count Male</option>
+          <option value="count_pacific_islander">Count Pacific Islander</option>
+          <option value="count_hispanic_latino">Count Hispanic/Latino</option>
+          <option value="count_american_indian">Count American Indian</option>
+          <option value="count_asian_non_hispanic">Count Asian Non-Hispanic</option>
+          <option value="count_white_non_hispanic">Count White Non-Hispanic</option>
+          <option value="count_black_non_hispanic">Count Black Non-Hispanic</option>
+          <option value="count_other_ethnicity">Count Other Ethnicity</option>
+          <option value="count_permanent_resident_alien">Count Permanent Resident Alien</option>
+          <option value="count_us_citizen">Count US Citizen</option>
+          <option value="count_other_citizen_status">Count Other Citizen Status</option>
+        </select>
+      </div>
     </div>
 
     <!-- Third Division -->
     <div class="section">
       <h2>Visual 3</h2>
-      <p>Placeholder text for Section 3. People aged 60-69 in the US have the following breakdown of savings:</p>
-      <img src="" alt="Image for Section 3">
       <div id="thirdVisual"></div>
     </div>
-  
+
+
   </div>
 
 </body>
+
 </html>
