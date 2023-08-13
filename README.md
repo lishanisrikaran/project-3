@@ -1,6 +1,6 @@
 # project-3
 
-![image](https://github.com/lishanisrikaran/project-backup/assets/126973634/7c05ebf7-49154fc2-847a-ddd7714f3514)
+https://cms.prod.nypr.digital/images/335410/fill-1200x800%7Cformat-webp%7Cwebpquality-85
 
 This project explores the distribution of wealth in the State of New York, according to research, New York is within the top 3 states to have a big distribution in household income inequality (Statista 2021). Themes which are explored include income poverty ratios in neighbourhoods with schools in proximity, different demographics, and the count of public assistance that each of these demographics receive, and finally the five boroughs within the State of New York and the median income within each of these boroughs.
 
