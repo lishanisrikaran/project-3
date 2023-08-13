@@ -17,6 +17,7 @@ def home():
         f"Available Routes:<br/><br/>"
         f"/api/v1.0/school_geojson<br/>"
         f"/api/v1.0/NYC_demographics_json<br/>"
+        f"/api/v1.0/median_income_nyc_boroughs_json"
     )
 
 # Route to output the school neighborhood poverty geojson to the user.
@@ -38,6 +39,12 @@ def NYC_json():
     json_response = jsonify(get_json(json_url))
     
     return json_response
+
+@app.route("/median_income_nyc_boroughs_json")  
+def median_income_json():
+    with open("median_income_nyc_boroughs.json") as median_income_json_file:
+        median_income_data = json.load(median_income_json_file)
+    return jsonify(median_income_data)
 
 if __name__ == "__main__":
     app.run(debug=True)
