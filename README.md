@@ -1,6 +1,6 @@
 # project-3
 
-[https://www.thenation.com/wp-content/uploads/2020/04/unhoused-person-nyc-img.jpg  ](https://www.thenation.com/wp-content/uploads/2020/04/unhoused-person-nyc-img.jpg)
+![image](https://github.com/lishanisrikaran/project-3/assets/126973634/a840fbf3-4ea4-4a2f-b486-b3e62a1d7b67)
   
 This project explores the distribution of wealth in the State of New York, according to research, New York is within the top 3 states to have a big distribution in household income inequality (Statista 2021). Themes which are explored include income poverty ratios in neighbourhoods with schools in proximity, different demographics, and the count of public assistance that each of these demographics receive, and finally the five boroughs within the State of New York and the median income within each of these boroughs.
 
@@ -32,3 +32,6 @@ Team Members: Ana Tipple, Chenita Francis-Hare, Chioma Juliet Uche, Lishani Srik
 1) Navigate into the 'project-3' directory in your terminal. 
 
 2) Type <python -m http.server>
+
+
+
