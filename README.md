@@ -19,12 +19,12 @@ Team Members: Ana Tipple, Chenita Francis-Hare, Chioma Juliet Uche, Lishani Srik
 
 4) Type <python -m venv .venv.>
 
-4) Open up a new Anaconda Prompt terminal, cd into the directory which contains the file 'app_solution' and type the folowing:
+5) Open up a new Anaconda Prompt terminal, cd into the directory which contains the file 'app_solution' and type the folowing:
 <li>.venv\Scripts\activate</li>
 <li>flask --app app_solution run</li>
 
 
-5) Copy and paste the server link into your browser and you will then be shown each route of every raw data set used in this project. 
+6) Copy and paste the server link into your browser and you will then be shown each route of every raw data set used in this project. 
 
 
 <b>Due to cross-origin resource sharing restrictions, to gain visability of all visualisations within the index.html file, you will need to open this from within a python HTTP server, instructions below:</b>
