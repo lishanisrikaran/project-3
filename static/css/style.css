@@ -68,3 +68,13 @@ header {
   margin: 0 auto; /* Center horizontally using margin */
   height: 100%;
 }
+
+/* Styling which applies to the heatmap ID. */
+#income-heatmap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%; /* Adjust this value to your preferred width */
+  margin: 0 auto; /* Center horizontally using margin */
+  height: 100%;
+}

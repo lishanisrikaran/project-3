@@ -1,7 +1,7 @@
 // Creates the map object so the initial view captures the state: New York.
 let myMap = L.map("schoolMap", {
-  center: [43, -75.5], 
-  zoom: 7 
+  center: [43, -75.5],
+  zoom: 7
 });
 
 
@@ -16,11 +16,11 @@ let url = "https://data-nces.opendata.arcgis.com/datasets/nces::school-neighborh
 
 
 // Creates a layer group which will store the circle markers for each school displayed on myMap. 
-let schoolsLayer = L.layerGroup(); 
+let schoolsLayer = L.layerGroup();
 
 
 // Gets the data with d3.
-d3.json(url).then(function(response) {
+d3.json(url).then(function (response) {
   // Logs the reponse within the console so the properties of each feature can be viewed. 
   console.log(response);
 
@@ -28,10 +28,10 @@ d3.json(url).then(function(response) {
   features = response.features;
 
   // When the GeoJSON is explored, the majority of New York's schools lay within the 61000th and 62000th object therefore each feature in this range will be looped through.
-  for (let i = 61000; i < 62000; i++) {
+  for (let i = 60000; i < 67000; i++) {
     // The coordinates of each school in our sample are located within the geometry array of objects which will now be stored in the 'location' variable. 
     let location = features[i].geometry;
-    
+
     // As we are not able to manually check if each of our sample contains a geometry array, we set a conditional to first check this.
     if (location) {
       // Retrieves the income to poverty ratio.
@@ -51,9 +51,9 @@ d3.json(url).then(function(response) {
 
       // Creates a circle marker where the color is dependant on the value of the IPR_EST.
       let circleMarker = L.circle([location.coordinates[1], location.coordinates[0]], {
-        radius: 5000, 
+        radius: 5000,
         fillColor: fillColor,
-        color: "black", 
+        color: "black",
         weight: 1,
         fillOpacity: 0.8
       });
@@ -72,35 +72,35 @@ d3.json(url).then(function(response) {
 
 
   // Add the layer control to the map.
-  L.control.layers(null, {"Schools": schoolsLayer}, { collapsed: false }).addTo(myMap);
-  
+  L.control.layers(null, { "Schools": schoolsLayer }, { collapsed: false }).addTo(myMap);
 
-// Legend setup:
 
-// Defines the IPR_EST's and their corresponding colors in an object.
-let iprEstColors = {
-  "0-200": "red",
-  "200-400": "orange",
-  "400-600": "yellow",
-  "600-800": "green",
-  "800+": "darkgreen" 
-};
+  // Legend setup:
 
-let legend = L.control({ position: "bottomright" });          // Legend position on the map.
-legend.onAdd = function(map) {
-  let div = L.DomUtil.create("div", "info legend");           // Creates a div with a class called 'info legend'.
-  let labels = [];                                            // Array set up to store legend's content. 
+  // Defines the IPR_EST's and their corresponding colors in an object.
+  let iprEstColors = {
+    "0-200": "red",
+    "200-400": "orange",
+    "400-600": "yellow",
+    "600-800": "green",
+    "800+": "darkgreen"
+  };
 
-  // Loops through the iprEstColors object and for each key (IPR_EST range), and value (color), their content and style are appended to the labels array.
-  Object.entries(iprEstColors).forEach(([range, color]) => {
-    labels.push(
-      '<i style="background:' + color +'"></i>' + range 
-    );
-  });
+  let legend = L.control({ position: "bottomright" });          // Legend position on the map.
+  legend.onAdd = function (map) {
+    let div = L.DomUtil.create("div", "info legend");           // Creates a div with a class called 'info legend'.
+    let labels = [];                                            // Array set up to store legend's content. 
 
-   // Enters the labels array within the div and separates each line with a line break.
-  div.innerHTML = labels.join("<br>"); 
-  return div;
+    // Loops through the iprEstColors object and for each key (IPR_EST range), and value (color), their content and style are appended to the labels array.
+    Object.entries(iprEstColors).forEach(([range, color]) => {
+      labels.push(
+        '<i style="background:' + color + '"></i>' + range
+      );
+    });
+
+    // Enters the labels array within the div and separates each line with a line break.
+    div.innerHTML = labels.join("<br>");
+    return div;
   };
 
   // Add the legend to the map.
